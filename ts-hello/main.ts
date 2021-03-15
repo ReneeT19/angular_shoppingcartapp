@@ -43,7 +43,8 @@ let b: boolean;
 let c: string;
 let d: any;
 let e: number[] = [1,2,3];
-let f: any[] = [1, true, 'a'] //not a good practice but a feature in ts
+let f: Array<string> = ["a","b"]
+let g: any[] = [1, true, 'a'] //not a good practice but a feature in ts
 */
 
 /* Enum
@@ -73,7 +74,7 @@ let doLog = (message) => { console.log(message) }
 interface Point {
     x: number,
     y: number,
-    draw: () => void;
+    draw();
 }
 let drawPoint = (point: Point) => {
     //...
@@ -85,6 +86,20 @@ drawPoint ({
     x: 1,
     y:2
 })
+
+class A implements Point {
+    x: number;
+    y: number;
+  constructor(x: number, y: number) {
+      this.x=x;
+      this.y=y;
+  }
+  draw(){
+      console.log("implementing an interface " + this.x + " " +this.y);
+  }
+}
+let o = new A (5,7);
+console.log(o.draw());
 */
 
 //use Class to follow the cohesion principle to have everything related to point in one class unit
@@ -171,6 +186,28 @@ point.setX(10); //when you want the use to set the value at certain condition
 point.x = 10;
 point.draw();
 // use "_" in the field so it won't conflict with the getter and setter name
+*/
+
+/* Parent and Child Class
+class ParentClass {
+    private j: number;
+    constructor(k: number) {
+        this.j = k;
+    }
+}
+class ChildClass extends ParentClass {
+    l: number;
+    constructor(m:number, k:number) {
+        super(k);
+        this.l=m;
+    }
+    value() {
+        return("Value from parent is " +this.j+" and the value from child is " + this.l);
+    }
+}
+
+let newObj = new ChildClass(12,23);
+console.log(newObj.value());
 */
 
 /* Module import */
