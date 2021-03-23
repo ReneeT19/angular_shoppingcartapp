@@ -7,3 +7,4 @@ export class Point {
     draw() {
         console.log('X: ' + this._x + ', Y: ' + this._y);
     }
+}

@@ -211,7 +211,14 @@ console.log(newObj.value());
 */
 
 /* Module import */
-import {Point} from './point';
+// import {Point} from './point';
 
-let point = new Point(5,7);
-point.draw();
+// let point = new Point(5,7);
+// point.draw();
+
+import {LikeComponent} from './like.component';
+
+let component = new LikeComponent(10, true);
+component.onClick();
+console.log(`likeCount: ${component.likesCount}, isSelected: ${component.isSelected}`);
+//need tsc *.ts --target ES5 && node main.js to get rid of the error
