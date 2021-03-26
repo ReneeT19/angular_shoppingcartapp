@@ -216,9 +216,9 @@ console.log(newObj.value());
 // let point = new Point(5,7);
 // point.draw();
 
-import {LikeComponent} from './like.component';
+// import {LikeComponent} from './like.component';
 
-let component = new LikeComponent(10, true);
-component.onClick();
-console.log(`likeCount: ${component.likesCount}, isSelected: ${component.isSelected}`);
-//need tsc *.ts --target ES5 && node main.js to get rid of the error
+// let component = new LikeComponent(10, true);
+// component.onClick();
+// console.log(`likeCount: ${component.likesCount}, isSelected: ${component.isSelected}`);
+// //need tsc *.ts --target ES5 && node main.js to get rid of the error
