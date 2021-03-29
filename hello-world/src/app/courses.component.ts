@@ -6,15 +6,36 @@ import { Component } from '@angular/core';
 //    template: '<h2>{{"Title: " + title}}</h2>'
 //    template: '<h2>{{ getTitle() }}</h2>'
       template: `
-        <h2> {{title}}</h2>
-        <ul>
-            <li *ngFor="let course of courses">
-                {{course}}
-            </li> 
-        </ul>
+        <button class="btn btn-primary" [class.active]="isActive">Save</button> 
+        <button [style.backgroundColor]="isActive ? 'blue': 'white'"></button>
+        <div (click)="onDivClicked()">
+        <button (click)="onSave($event)">SaveAgain</button>
+        </div>
+
+        <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
       `
+    //   <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()" />
 })
 export class CoursesComponent {
+    email = "me@example.com";
+
+    isActive = true;
+    onDivClicked() {
+        
+        console.log("Div clicked.");
+    }
+    onSave($event) {
+        $event.stopPropagation();
+        console.log("Clicked", $event);
+    }
+
+    // onKeyUp(email) {
+    //     console.log("Enter was pressed." + email);
+    // }
+    onKeyUp() {
+        console.log(this.email);
+    }
+
     title = " List of courses";
     //method
     getTitle() {
