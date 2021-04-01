@@ -16,13 +16,18 @@ import { Component } from '@angular/core';
         {{course.title | uppercase}}<br/>
         {{course.students | number}}<br/>
         {{course.rating | number: '1.2-2'}} <br/>
-        {{course.price}}<br/>
-        {{course.releaseDate}}
+        {{course.price | currency: 'AUD': true: '3.2-2'}}<br/>
+        {{course.releaseDate | date: 'shortDate'}}
+
+        {{text | summary: 10}}
 
       `
     //   <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()" />
 })
 export class CoursesComponent {
+
+    text = `fdsalfhanwviej;newdiw;e`;
+
     email = "me@example.com";
     isActive = true;
 
