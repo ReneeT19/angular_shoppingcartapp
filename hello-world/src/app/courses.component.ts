@@ -13,13 +13,26 @@ import { Component } from '@angular/core';
         </div>
 
         <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+        {{course.title | uppercase}}<br/>
+        {{course.students | number}}<br/>
+        {{course.rating | number: '1.2-2'}} <br/>
+        {{course.price}}<br/>
+        {{course.releaseDate}}
+
       `
     //   <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()" />
 })
 export class CoursesComponent {
     email = "me@example.com";
-
     isActive = true;
+
+    course = {
+        title: "abc",
+        rating: 4.6381,
+        students: 3007,
+        price: 500.95,
+        releaseDate: new Date(2021,3,31)
+    }
     onDivClicked() {
         
         console.log("Div clicked.");
