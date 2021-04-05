@@ -12,7 +12,9 @@ import { AuthorsService } from './authors.service';
 import { FormsModule } from '@angular/forms';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleCasePipe } from './title-case.pipe';
-
+import { PanelComponent } from './panel/panel.component';
+import { LikeComponent } from './like/like.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,16 @@ import { TitleCasePipe } from './title-case.pipe';
     AuthorsComponent,
     SummaryPipe,
     FavoriteComponent,
-    TitleCasePipe
+    TitleCasePipe,
+    PanelComponent,
+    LikeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    // NgbModule.forRoot(),
+    NgbModule
   ],
   providers: [
     CoursesService,
