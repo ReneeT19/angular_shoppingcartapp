@@ -1,7 +1,10 @@
 <!-- <h1>Angular</h1>
 <courses></courses>
 <authors></authors> -->
-<!-- <favorite></favorite> -->
+<!-- <favorite [isFavorite]="post.isFavorite"></favorite> -->
+
+<!-- aliasing input -->
+<favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChange()"></favorite>
 
 <input type="text" [(ngModel)]="title">
 {{title | titleCase}}
