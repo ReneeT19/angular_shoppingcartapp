@@ -17,7 +17,7 @@
 <like [likesCount]="tweet.likesCount"
      [isActive]="tweet.isLiked">
 </like>
-<<<<<<< HEAD
+
 <br><br>
 <button 
 [style.backgroundColor]="canSave ? 'blue': 'gray'"
@@ -34,7 +34,6 @@
 {{task.assignee?.name}}
 
 <input type="text" [appInputFormat]="'lowercase'">
-=======
 
 <div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
 <ng-template #coursesList>
@@ -59,7 +58,7 @@
     <div *ngSwitchCase="'list'">List View Content</div>
     <div *ngSwitchDefault>Otherwise</div>
 </div>
-<<<<<<< HEAD
+
 
 
 <button (click)="loadCourses()">Load Courses</button>
@@ -79,6 +78,8 @@
         {{course.name}} <span *ngIf="isOdd">(ODD)</span>
      </li> -->
 </ul>
-=======
->>>>>>> 91fc5a46a5b491d61acbf6c7fab6653cc1208759
->>>>>>> cf2d94ec432916cc896f1283411e9536ffbb3793
+
+<zippy title="Shipping Details">
+    Shipping Details Content
+</zippy>
+
