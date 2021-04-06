@@ -24,9 +24,18 @@ export class AppComponent {
     isLiked: true
   }
 
+<<<<<<< HEAD
+  canSave = false;
+
+  task = {
+    title: 'Review application',
+    assignee: null
+  }
+=======
   courses= [1,2];
 
   viewMode = 'map';
+<<<<<<< HEAD
 
   courses2 = [
     {id: 1, name: 'course1'},
@@ -60,4 +69,8 @@ export class AppComponent {
   trackCourse(index, course) {
     return course ? course.id : undefined;
   }
+=======
+  
+>>>>>>> 91fc5a46a5b491d61acbf6c7fab6653cc1208759
+>>>>>>> cf2d94ec432916cc896f1283411e9536ffbb3793
 }
