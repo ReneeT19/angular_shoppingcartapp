@@ -1,7 +1,14 @@
 
 <span 
-<!-- class="favorite" -->
-    [class.favorite]="isFavorite"
-    [class.unfavorite]="!isFavorite"
-    (click)="onClick()">click
+
+    [ngClass]="{
+        'favorite': isFavorite,
+        'unfavorite': !isFavorite 
+    }"
+    (click)="onClick()">
 </span>
+
+<!-- use ngClass instead of class. -->
+<!-- class="favorite"
+    [class.favorite]="isFavorite"
+    [class.unfavorite]="!isFavorite" -->

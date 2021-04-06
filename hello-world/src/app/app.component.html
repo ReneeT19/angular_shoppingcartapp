@@ -41,3 +41,22 @@
     <div *ngSwitchCase="'list'">List View Content</div>
     <div *ngSwitchDefault>Otherwise</div>
 </div>
+
+
+<button (click)="loadCourses()">Load Courses</button>
+<ul>
+    <li *ngFor="let course of courses3; index as i; trackBy: trackCourse">
+       {{i}} - {{course.name}}
+       </li>
+</ul>
+<ul>
+    <li *ngFor="let course of courses2; index as i">
+       {{i}} - {{course.name}}
+       <button (click)="onChange(course)">Update</button>
+       <button (click)="onRemove(course)">Remove</button>
+    </li>
+    <button (click)="onAdd()">Add</button>
+    <!-- <li *ngFor="let course of courses2; odd as isOdd">
+        {{course.name}} <span *ngIf="isOdd">(ODD)</span>
+     </li> -->
+</ul>
