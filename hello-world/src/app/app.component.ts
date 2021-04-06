@@ -23,4 +23,11 @@ export class AppComponent {
     likesCount: 10,
     isLiked: true
   }
+
+  canSave = false;
+
+  task = {
+    title: 'Review application',
+    assignee: null
+  }
 }
