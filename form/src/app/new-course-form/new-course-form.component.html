@@ -1,6 +1,4 @@
 <form #f="ngForm" (ngSubmit)="submit(f)">
-    <div ngModelGroup="contact" #contact="ngModelGroup">
-        <div *ngIf="!contact.valid"></div>
     <div class="form-group">
 
         <label for="courseName">Course Name</label>
@@ -10,23 +8,26 @@
             <div *ngIf="courseName.errors.minlength">Course Name should be minimum {{courseName.errors.minlength.requiredLength}} characters</div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
     <div class="checkbox">
         <label>
-            <input type="checkbox" ngModel name="isSubscribed">30-day money-back guarantee
+            <input ngModel type="checkbox" ngModel name="isSubscribed">30-day money-back guarantee
         </label>
 
     </div>
 
 
     <div class="form-group">
-        <label for="newCourse"></label>
-        <select ngModel name="newCourse" id="newCourse" class="form-control"> 
+        <label for="newCourse">Category</label>
+        <select required ngModel name="newCourse" #newCourse="ngModel" id="newCourse" class="form-control"> 
             <!-- add multiple before ngModel if you need to choose multiple elements -->
             <option value=""></option>
             <option *ngFor="let course of newCourses" [value]="course.id">{{course.name}}</option>
             <!-- if you want to send the contactmethod as an object, use [ngValue]="method" -->
         </select>
+        <div *ngIf="newCourse.touched && newCourse.invalid" class="alert alert-danger">
+            Category field is required.
+        </div>
     </div>      
        <!-- do the radio button dynamically and the commented out one is the hardcoded version -->
     <div *ngFor="let course of newCourses" class="radio">
@@ -35,12 +36,6 @@
             {{course.name}}
         </label>
     </div>
-    <!-- <div class="radio">
-        <label for="">
-            <input ngModel type="radio" name="contactMethod" value="2">
-            Phone
-        </label>
-    </div> -->
         <p>{{f.value | json}}</p>          
     <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
 </form>
