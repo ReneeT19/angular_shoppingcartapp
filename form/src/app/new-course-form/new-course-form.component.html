@@ -1,0 +1,46 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+    <div ngModelGroup="contact" #contact="ngModelGroup">
+        <div *ngIf="!contact.valid"></div>
+    <div class="form-group">
+
+        <label for="courseName">Course Name</label>
+        <input required minlength="5" ngModel name="courseName" #courseName="ngModel" (change)="log(courseName)" id="courseName" type="text" class="form-control">
+        <div class="alert alert-danger" *ngIf="courseName.touched && !courseName.valid">
+            <div *ngIf="courseName.errors.required">Course Name is required.</div>
+            <div *ngIf="courseName.errors.minlength">Course Name should be minimum {{courseName.errors.minlength.requiredLength}} characters</div>
+            </div>
+        </div>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ngModel name="isSubscribed">30-day money-back guarantee
+        </label>
+
+    </div>
+
+
+    <div class="form-group">
+        <label for="newCourse"></label>
+        <select ngModel name="newCourse" id="newCourse" class="form-control"> 
+            <!-- add multiple before ngModel if you need to choose multiple elements -->
+            <option value=""></option>
+            <option *ngFor="let course of newCourses" [value]="course.id">{{course.name}}</option>
+            <!-- if you want to send the contactmethod as an object, use [ngValue]="method" -->
+        </select>
+    </div>      
+       <!-- do the radio button dynamically and the commented out one is the hardcoded version -->
+    <div *ngFor="let course of newCourses" class="radio">
+        <label for="">
+            <input ngModel type="radio" name="newCourse" [value]="course.id">
+            {{course.name}}
+        </label>
+    </div>
+    <!-- <div class="radio">
+        <label for="">
+            <input ngModel type="radio" name="contactMethod" value="2">
+            Phone
+        </label>
+    </div> -->
+        <p>{{f.value | json}}</p>          
+    <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+</form>
