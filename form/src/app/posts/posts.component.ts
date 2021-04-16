@@ -69,10 +69,13 @@ export class PostsComponent implements OnInit {
     (error: Response) => {
       if(error.status === 404) 
         alert('This post has already been deleted.');    
-      else {
-        alert('An expected error occurred.');
-        console.log(error);
-      }}
+      else throw error;
+      //handled by the global error handler
+      // {
+      //   alert('An expected error occurred.');
+      //   console.log(error);
+      // }
+    }
     );
   }
 }
