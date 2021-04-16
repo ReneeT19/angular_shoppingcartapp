@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import { BackendService } from './backend.service'
 @Component({
   selector: 'posts',
@@ -7,8 +6,9 @@ import { BackendService } from './backend.service'
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-
-  data= []; constructor(private backendService: BackendService) { }
+  id=[];
+  data= []; 
+  constructor(private backendService: BackendService) { }
 
 // posts: any[];
 
@@ -19,9 +19,60 @@ export class PostsComponent implements OnInit {
 //     });
 //   }
 
-ngOnInit() { this.backendService.get().subscribe((ret: any[])=>{  
-  console.log(ret);  
-  this.data = ret;  
-  })  
-}
+  ngOnInit() {
+
+    this.backendService.get().subscribe((res:any[]) =>{  
+    console.log(res);  
+    this.data = res;
+    })  
+  }
+
+  getById() {
+    this.backendService.getById().subscribe((res:any[]) => {
+      console.log(res);
+      this.data = res;
+    })
+  }
+
+  createPost(input: HTMLInputElement) {
+    let post = {title: input.value};
+    input.value="";
+
+    this.backendService.post(post).subscribe(response => {
+      // post['id']=response.id;
+      this.id=post['id'];
+      this.data.splice(0,0,post);
+      console.log(response);
+    },
+    (error:Response) => {
+      if(error.status===400) {}
+        // this.form.setErrors(error.json())
+      else {
+        alert('An unexpected error occurred.');
+        console.log(error);
+      }
+    });
+  }
+
+  updatePost(post) {
+    this.backendService.patch(post).subscribe((response:any) => {
+      console.log(response);
+    })
+  }
+
+  deletePost(post) {
+    this.backendService.delete(345).subscribe(response => {
+      let index = this.data.indexOf(post);
+      this.data.splice(index,1);
+      console.log(response);
+    },
+    (error: Response) => {
+      if(error.status === 404) 
+        alert('This post has already been deleted.');    
+      else {
+        alert('An expected error occurred.');
+        console.log(error);
+      }}
+    );
+  }
 }

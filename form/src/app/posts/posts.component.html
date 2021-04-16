@@ -1,10 +1,20 @@
-<p>posts works!</p>
-
+<input
+    (keyup.enter)="createPost(title)" #title
+    type="text" class="form-control">
 <div>  
-    <ul>  
-       <li *ngFor="let item of data">  
-          {{item.id}}  
-          {{item.title}}
+    <ul class="list-group">  
+       <li *ngFor="let item of data" class="list-group-item">  
+         {{item.id}}  
+         {{item.title}}
+        <button 
+        (click)="updatePost(post)"
+        class="btn btn-default btn-sm">Update</button>
+        <button 
+        (click)="deletePost(post)"
+        class="btn btn-default btn-sm">Delete</button>
        </li>  
+       <button 
+       (click)="getById()">
+      Get By Id</button>
     </ul>  
  </div>  
