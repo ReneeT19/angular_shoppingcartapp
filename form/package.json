@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~11.2.7",
     "@angular/platform-browser-dynamic": "~11.2.7",
     "@angular/router": "~11.2.7",
+    "@auth0/angular-jwt": "^5.0.2",
     "angular-bootstrap-form-group": "0.0.1",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",

@@ -17,6 +17,9 @@ import { HomeComponent } from './home/home.component';
 import { GithubFollowersComponent } from './github-followers/github-followers.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
+import { NoAccessComponent } from './no-access/no-access.component';
 
 
 
@@ -31,7 +34,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NavbarComponent,
     GithubFollowersComponent,
     GithubProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoginComponent,
+    AdminComponent,
+    NoAccessComponent
   ],
   imports: [ 
     BrowserModule,

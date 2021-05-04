@@ -43,7 +43,7 @@ public delete(postData: Object) {
     let id: number = 1;
     let endPoints = "/posts/" + id;
     return this.httpClient.delete(this.url + endPoints, postData).pipe(retry(1), catchError(error => {
-        return throwError(error.message);
+        return throwError(error.message)
     }));  
 }
 }  
